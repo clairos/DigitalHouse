@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>SHOES!</title>
+</head>
+<body>
+    <header>
+        <img src="img/logo-color.png" alt="logo shoes">
+        <nav>
+            <ul>
+                <li>TODOS OS PRODUTOS</li>
+                <li>COLEÇÕES</li>
+                <li>OUTLET</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Faça parte do nosso time</h1>
+            <form action="forms.html" method="post">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome"required>
+                <br>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="tel">Telefone</label>
+                <input type="tel" id="tel" name="tel" required>
+                <br>
+                <label for="dep">Departamentos</label>
+                <input type="text" id="dep" name="dep" required>
+                <br>
+                <div id="disponibilidade">
+                    <label for="disp">Disponibilidade</label>
+                    <br>
+                    <input type="checkbox" id="disp" name="disp" value="8h"><label for="8h">Integral (8h)</label>
+                    <input type="checkbox" id="disp" name="disp" value="4h"><label for="4h">Meio período (4h)</label>
+                    <input type="checkbox" id="disp" name="disp" value="freela"><label for="8h">Freelancer</label>
+                </div>
+                <br>
+                <div id="contato">
+                    <label>Qual a melhor forma para entrarmos em contato com você?</label>
+                    <br>
+                    <input type="radio" id="cont" name="cont" value="email"><label for="email">Email</label>
+                    <input type="radio" id="cont" name="cont" value="ligacao"><label for="ligacao">Ligação</label>
+                    <input type="radio" id="cont" name="cont" value="wpp"><label for="wpp">WhatsApp</label>
+                </div>
+                
+                <br>
+                <label for="msg">Mensagem</label>
+                <textarea name="msg" id="msg" cols="80" rows="7"></textarea>
+                <br>
+                <label for="curriculo">Currículo</label>
+                <input type="file" id="curriculo" name="curriculo" value="upload">
+                <br>
+                <button type>enviar</button>
+                <br>
+            </form>
+        </section>
+
+        <section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+                aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse 
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                mollit anim id est laborum.</p>
+        </section>
+    </main>
+    <footer>
+        <div class="column-disclaimer">
+            <img src="img/logo-white.png" alt="">
+            <span>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Duis nisl turpis, tincidunt a tortor hendrerit,
+              auctor lacinia lorem. Cras et magna
+            </span>
+        </div>
+      
+        <div class="column-categories">
+            <h4>categorias</h5>
+            <nav>
+                <ul>
+                <li>sandálias</li>
+                <li>botas</li>
+                <li>tênis</li>
+                <li>oxford</li>
+                <li>coturnos</li>
+                </ul>
+            </nav>
+        </div>
+    
+        <div class="column institucional">
+            <h4>institucional</h5>
+            <nav>
+                <ul>
+                <li>sobre nós</li>
+                <li>perguntas frequentes</li>
+                <li>política de privacidade</li>
+                <li>rastreamentos de pedidos</li>
+                <li>trabalhe conosco</li>
+                <li>contato</li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

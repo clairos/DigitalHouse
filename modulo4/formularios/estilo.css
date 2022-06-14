@@ -1,0 +1,17 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* pseudo-seletores */
+
+input {
+    border-color: red;
+}
+
+input:hover {
+    border-color: rebeccapurple;
+}
+
+input:focus {
+    width: 400px;
+}

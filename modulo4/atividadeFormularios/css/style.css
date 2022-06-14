@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@200&family=MedievalSharp&family=Ropa+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    font-family: 'MedievalSharp', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #777777;
+    border-bottom: solid 1px rgba(159, 159, 159, 0.3);
+    box-shadow: 0px 1px 5px rgba(159, 159, 159, 0.5);
+}
+
+header img {
+    margin-left: 15px;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+}
+
+header ul li {
+    margin-left: 30px;
+}
+
+main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 50px;
+    color: #575757;
+}
+
+main h1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+    font-size: 29px;
+}
+
+main form  {
+    display: flex;
+    flex-flow: column wrap;
+    color: #9B9B9B;
+    padding: 15px;
+    font-size: 18px;
+}
+
+main form button {
+    font-size: 20px;
+    color: #FFFF;
+    background-color: #C2185B;
+    border: none;
+    padding: 0.2rem;
+    cursor: pointer;
+}
+
+main p {
+    font-size: 18px;
+    color: #777777;
+    text-align: justify;
+    line-height: 22px;
+    margin-top: 30px;
+    margin-left: 55px;
+    padding: 10px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #FFFF;
+    background-color: #C2185B;
+}
+
+footer ul {
+    list-style: none;
+}
+
+.column-disclaimer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}

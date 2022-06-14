@@ -1,0 +1,28 @@
+header {
+    border: 3px solid gray;
+    padding: 10px;
+    margin: 10px;
+}
+
+main {
+    border: 3px solid gray;
+    padding: 10px;
+    margin: 10px;
+}
+
+footer {
+    border: 3px solid gray;
+    padding: 10px;
+    margin: 10px;
+}
+
+section {
+    border-top: 2px dotted gray;
+    border-bottom: 2px dotted gray;
+}
+
+article {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: burlywood;
+}
