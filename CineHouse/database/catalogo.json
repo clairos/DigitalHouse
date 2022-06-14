@@ -1,0 +1,17 @@
+[{
+    "codigo":1,
+    "titulo":"dr strange multiverse of madness",
+    "duracao":2.5,
+    "atores":["benedict cumberbatch", "elizabeth olsen"],
+    "anoDeLancamento":2022,
+    "emCartaz":true
+},
+
+{
+    "codigo":2,
+    "titulo":"spiderman no way home",
+    "duracao":2.5,
+    "atores":["tom holland","zendaya"],
+    "anoDeLancamento":2021,
+    "emCartaz":false
+}]
