@@ -1,0 +1,254 @@
+/* Estilos gerais */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 1px 20px rgba(159, 159, 159, 0.65);
+  height: 12vh;
+  padding: 0 20px;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul li {
+  padding: 20px;
+}
+
+.navegacao a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #777777;
+  font-weight: 500;
+}
+
+#frete {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  background-color: #C2185B;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#frete h3 {
+  color: white;
+  z-index: 1;
+}
+
+/* Main */
+
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 50px 0;
+}
+
+main #texto {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+#texto p {
+  margin-bottom: 20px;
+  color: #575757;
+  animation: texto 2s 1;
+}
+
+/* Form */
+
+main form {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  color: #9B9B9B
+}
+
+main form h1 {
+  color: #575757;
+}
+
+main form input {
+  border: solid 1px #9B9B9B;
+}
+
+/* 
+  Aqui falamos q todo o form q tenha logo em seguida um input ou um select, pegará esse estilo 
+*/
+
+main form > input, main form > select {
+  height: 26px;
+}
+
+main form > label {
+ margin-top: 15px;
+}
+
+.inputGroup {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.inputGroup div {
+  display: flex;
+  align-items: center;
+}
+
+.inputGroup div label {
+  margin-left: 10px;
+}
+
+/* Propriedade CSS que muda cor de quando o input está selecionado ^^ */
+
+input[type="checkbox"], input[type="radio"]{
+  accent-color:#C2185B;
+}
+
+/* Estilos do input do tipo "file' */
+
+input[type="file"]{
+  display: none;
+}
+
+#containerFile {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+#lblUpload {
+  margin-left: 20px;
+  background-color: #ccc;
+  padding: 0px 50px;
+  color: white;
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.submit {
+  width: 100%;
+  background-color: #C2185B;
+  color: white;
+  font-weight: 700;
+  border-radius: 2px;
+  border: none;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.submit:hover {
+  background-color: white;
+  color: #C2185B;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  background-color: #C2185B;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 30vh;
+}
+
+footer div {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 25vw;
+}
+
+footer div nav ul a {
+  color: white;
+}
+
+#logo_footer img {
+  width: 80%;
+  max-width: 250px;
+}
+
+#logo_footer p {
+  font-size: 14px;
+  width: 70%;
+}
+
+#social img {
+  width: 30px;
+}
+
+#social {
+  background-color: white;
+  border: solid 1px #C2185B;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 40%;
+  animation: slide 2s 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes slide {
+  0% {
+    left: -30px;
+  }
+  100% {
+    left: 0;;
+  }
+}
+
+@keyframes texto {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
