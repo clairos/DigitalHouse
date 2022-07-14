@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <!-- Include Head -->
-<%- include('partials/head', {title: '¿?'}) %>
+<%- include('partials/head', { title: 'Detalhe do Produto' }) %>
 <body>
 	<!-- Header -->
 	<%- include('partials/headerNavbar') %>
@@ -11,31 +11,27 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Detalhe do produto: NOME DO PRODUTO</h2>
+				<h2 class="products-title">Detalhe do produto: <%= product.name %> </h2>
 			</div>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<div class="col-12 col-lg-8">
-					<img src="/images/products/¿?" alt="product image" class="product-detail-img">
+					<img src="/images/products/<%= product.image %>" alt="product image" class="product-detail-img">
 					<p class="product-detail-description">
-						PRODUCT DESCRIPTION
+						<%= product.description %> 
 					</p>
 				</div>
 				<div class="col-12 col-lg-4">
 					<article class="product-detail-info">
-						<h2 class="product-detail-title">PRODUCT NAME</h2>
+						<h2 class="product-detail-title"><%= product.name %> </h2>
 						
 							<p class="product-detail-price small">
-								<span>$PRICE</span>
-								/
-								<b>DISCOUNT% OFF</b>
+								<span>$<%= product.price %> </span>
+								<b><%= product.discount %>% OFF</b>
 							</p>
 							<p class="product-detail-price">
-								$FINAL PRICE
-							</p>
-							<p class="product-detail-price">
-								$PRICE
+								$<%= product.price - (product.discount / 100 * product.price) %> 
 							</p>
 
 						<ul class="actions-list">
@@ -52,8 +48,8 @@
 						<a href="#" class="buy-now-button">COMPRAR AGORA</a>
 						<hr>
 
-						<a href="/products/edit/¿?" class="action-button edit">EDITAR PRODUTO</a>
-						<form action="/products/delete/¿¿" method="POST" style="display: inline-flex">
+						<a href="/products/edit/<%= product.id %> " class="action-button edit">EDITAR PRODUTO</a>
+						<form action="/products/delete/<%= product.id %> " method="POST" style="display: inline-flex">
 							<button type="submit" class="action-button delete">APAGAR</button>
 						</form>
 					</article>
