@@ -14,24 +14,24 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<form action="¿?" method="___">
+			<form action="/products/create" method="POST" enctype="multipart/form-data">
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="name" class="form-label">Nome do produto:</label>
-						<input type="text" id="name" name="name" placeholder="Ej: Chinelos Reebok" class="form-input">
+						<input type="text" id="name" name="name" placeholder="Ex: Chinelos Reebok" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="price" class="form-label">Preço do produto:</label>
-						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+						<input type="text" id="price" name="price" placeholder="Ex: 5678" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="discount" class="form-label">Desconto:</label>
-						<input type="text" id="discount" name="discount" placeholder="Ej: 15" class="form-input">
+						<input type="text" id="discount" name="discount" placeholder="Ex: 15" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="category" class="form-label">Categoria:</label>
 						<select name="category" id="category" class="form-input">
-							<option value="">Escolhi</option>
+							<option value="">Escolha</option>
 							<option value="in-sale">Em oferta</option>
 							<option value="visited">Últimos adicionados</option>
 						</select>
@@ -39,6 +39,10 @@
 					<div class="col-12">
 						<label for="description" class="form-label">Descrição:</label>
 						<textarea name="description" id="description" class="form-input"></textarea>
+					</div>
+					<div class="col-12">
+						<label class="form-label" for="image">Imagem do produto</label>
+						<input class="form-input" type="file" name="image" id="image">
 					</div>
 					<div class="col-12">
 						<button type="submit" class="buy-now-button">Salvar produto</button>

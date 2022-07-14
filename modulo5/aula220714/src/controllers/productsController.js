@@ -2,33 +2,49 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 	// Root - Show all products
 	index: (req, res) => {
-		res.render('products', { products });
+		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		res.render('products', { products, toThousand });
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		const { id } = req.params;  // = { id: 2 }
+
+		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		const product = products.find(item => item.id == id);
-		res.render('detail', { product });
+		res.render('detail', { product, toThousand });
 	},
 
 	// Create - Form to create
 	create: (req, res) => {
-		// Do the magic
+		res.render('product-create-form');
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		// Do the magic
-	},
+		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		const product = req.body;
+		product.image = req.file.filename; // -> propriedade adicionada pelo multer, na rota
+		product.id = products.length + 1; // gerar o próximo ID do array, tamanho do array + 1
 
+		products.push(product);
+		fs.writeFileSync(
+			path.resolve('src/data/productsDataBase.json'), 
+			JSON.stringify(products)
+		);
+		
+		// com spread operator:
+		// product.push({...product, id:product.length + 1, image})
+
+			res.redirect('/products/detail/' + product.id);
+		},
+		
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic

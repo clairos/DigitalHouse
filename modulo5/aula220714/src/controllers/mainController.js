@@ -10,7 +10,7 @@ const controller = {
 	index: (req, res) => {
 		const discounts = products.filter(produto => !!produto.discount) // msm coisa q (produto => produto.discount !== 0)
 		const productsLastView = products.slice(4, 8); // pega os 5 primeiros produtos
-		res.render('index', { discounts, productsLastView }); // segundo parametro serve para acessar as info dentro da view
+		res.render('index', { discounts, productsLastView, toThousand }); // segundo parametro serve para acessar as info dentro da view
 	},
 
 	search: (req, res) => {

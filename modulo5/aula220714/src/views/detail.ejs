@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <!-- Include Head -->
-<%- include('partials/head', { title: 'Detalhe do Produto' }) %>
+<%- include('partials/head', { title: product.name }) %>
 <body>
 	<!-- Header -->
 	<%- include('partials/headerNavbar') %>
@@ -27,11 +27,11 @@
 						<h2 class="product-detail-title"><%= product.name %> </h2>
 						
 							<p class="product-detail-price small">
-								<span>$<%= product.price %> </span>
+								<span>$<%= toThousand(product.price) %> </span>
 								<b><%= product.discount %>% OFF</b>
 							</p>
 							<p class="product-detail-price">
-								$<%= product.price - (product.discount / 100 * product.price) %> 
+								$<%= toThousand(product.price - (product.discount / 100 * product.price)) %> 
 							</p>
 
 						<ul class="actions-list">
