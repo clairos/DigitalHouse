@@ -27,14 +27,14 @@ router.post('/create/', upload.single('image'), productsController.store);
                             // array([]) -> varios arquivos
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/detail/:id/', productsController.detail);
+router.get('/detail/:id', productsController.detail);
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/:id/edit', productsController.edit); // /produtos/21/edit
-                                                  //  recurso / item / acao
-router.put('/:id', productsController.update);
+router.get('/edit/:id', productsController.edit); // /produtos/edit/21
+                                                  // /recurso /acao/item
+router.put('/edit/:id', productsController.update);
 
 /*** DELETE ONE PRODUCT***/ 
-router.delete('/:id', productsController.destroy);
+router.delete('/delete/:id', productsController.destroy);
 
 module.exports = router;

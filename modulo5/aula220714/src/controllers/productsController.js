@@ -1,14 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const Produto = require('../models/Produto');
+const toThousand = require('../helpers/toThousand');
 
 const controller = {
 	// Root - Show all products
 	index: (req, res) => {
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		const products = Produto.findAll();
 		res.render('products', { products, toThousand });
 	},
 
@@ -16,8 +12,8 @@ const controller = {
 	detail: (req, res) => {
 		const { id } = req.params;  // = { id: 2 }
 
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		const product = products.find(item => item.id == id);
+		const product = Produto.findOne(id);
+
 		res.render('detail', { product, toThousand });
 	},
 
@@ -28,35 +24,42 @@ const controller = {
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-		const product = req.body;
-		product.image = req.file.filename; // -> propriedade adicionada pelo multer, na rota
-		product.id = products.length + 1; // gerar o próximo ID do array, tamanho do array + 1
+		const products = Produto.findAll();
+		const receivedProduct = req.body;
 
-		products.push(product);
-		fs.writeFileSync(
-			path.resolve('src/data/productsDataBase.json'), 
-			JSON.stringify(products)
-		);
+		receivedProduct.image = req.file.filename; // -> propriedade adicionada pelo multer, na rota
+		receivedProduct.id = products.length + 1; // gerar o próximo ID do array, tamanho do array + 1
 		
 		// com spread operator:
 		// product.push({...product, id:product.length + 1, image})
 
-			res.redirect('/products/detail/' + product.id);
-		},
+		products.push(receivedProduct);
+		Produto.save(products);
+		
+		res.redirect('/products/detail/' + receivedProduct.id);
+	},
 		
 	// Update - Form to edit
 	edit: (req, res) => {
-		// Do the magic
+		const { id } = req.params;
+		const product = Produto.findOne(id);
+
+		res.render('product-edit-form', { product });
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
+		const { id } = req.params;
+		Produto.update(id, req.body);
+
+		res.redirect('/products/detail/' + id);
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		// Do the magic
+		const { id } = req.params;
+		Produto.destroy(id);
+
+		res.redirect('/products');
 	}
 };
 

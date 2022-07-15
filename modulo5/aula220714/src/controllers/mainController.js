@@ -1,16 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const Produto = require('../models/Produto');
+const toThousand = require('../helpers/toThousand');
 
 const controller = {
 	index: (req, res) => {
-		const discounts = products.filter(produto => !!produto.discount) // msm coisa q (produto => produto.discount !== 0)
-		const productsLastView = products.slice(4, 8); // pega os 5 primeiros produtos
-		res.render('index', { discounts, productsLastView, toThousand }); // segundo parametro serve para acessar as info dentro da view
+		const produtos = Produto.findAll();
+		
+		res.render('index', { 
+			discounts: Produto.findDiscount(produtos), 
+			productsLastView: Produto.findLastView(produtos), 
+			toThousand 
+		}); 
 	},
 
 	search: (req, res) => {
