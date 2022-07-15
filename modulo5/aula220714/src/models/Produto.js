@@ -30,6 +30,10 @@ const Produto = {
     update(receivedId, receivedProduct) {
         const products = this.findAll();
         const productUpdate = products.find(item => item.id == receivedId)
+        
+        Object.assign(productUpdate, receivedProduct);
+
+        this.save(products);
 
         // processo manual
         // productUpdate.name = receivedProduct.name;
@@ -38,14 +42,9 @@ const Produto = {
         // productUpdate.discount = receivedProduct.discount;
         // productUpdate.category = receivedProduct.category;
 
-        // mesmo processo, mas com função nativa do JS
-        Object.assign(productUpdate, receivedProduct); 
-
         // mesmo processo, com spread operator
         // caso newProduct = { ...productUpdate, ...receivedProduct } -> cria um objeto novo
         // neste caso não é viável, pois não altera na lista
-
-        this.save(products);
     },
 
     destroy(receivedId) {
