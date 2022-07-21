@@ -1,19 +1,8 @@
 // ************ Require's ************
 const express = require('express');
-const multer = require('multer');
 const router = express.Router();
-
-// ************ MULTER CONFIG *****************
-const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null,__dirname + '../../../public/images/products');
-    },
-    filename: (req, file, callback) => {
-        callback(null, Date.now() + '-' + file.originalname);
-    }
-}); // configuracao padrao para o multer
-
-const upload = multer({ storage });
+const upload = require('../middlewares/multer');
+const productValidator = require ('../middlewares/productValidator');
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
@@ -23,8 +12,9 @@ router.get('/', productsController.index);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create/', productsController.create);
-router.post('/create/', upload.single('image'), productsController.store);
+router.post('/create/', upload.single('image'), productValidator, productsController.store);
                             // array([]) -> varios arquivos
+                                              // função ja usa o next
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/detail/:id', productsController.detail);

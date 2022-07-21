@@ -1,5 +1,6 @@
 const Produto = require('../models/Produto');
 const toThousand = require('../helpers/toThousand');
+const { validationResult } = require('express-validator');
 
 const controller = {
 	// Root - Show all products
@@ -19,11 +20,17 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render('product-create-form');
+		res.render('product-create-form', { errors: [] });
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
+		const errors = validationResult(req);
+
+		if (errors.length){ // 0 = false, >1 = true
+			return res.render('product-create-form', { errors });
+		}
+
 		const products = Produto.findAll();
 		const receivedProduct = req.body;
 
