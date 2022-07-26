@@ -1,0 +1,11 @@
+[
+    {
+        "full_name": "clara",
+        "email": "clara@teste.com",
+        "password": "1234",
+        "country": "Bra",
+        "avatar": "",
+        "id": 1,
+        "re_password": "$2a$10$z3r2k73Gvi6pdnOobXybGO4p7VtWWU4YsWqy13Nm7LMW0XVAMQuZy"
+    }
+]

@@ -9,13 +9,16 @@
 		<div class="row justify-content-center">
 			<div class="col-md-10">
 				<h2>Formulário de Login</h2>
+				<% errors.forEach(error => { %>
+					<%= error.msg %> 
+				<% }) %>
 	
 				<form method="POST" action="/users/login">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
 								<label><b>Email:</b></label>
-								<input type="text" name="user_email" class="form-control">
+								<input type="text" name="email" class="form-control">
 								<div class="invalid-feedback">
 								</div>
 							</div>
@@ -23,7 +26,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label><b>Senha:</b></label>
-								<input type="password" name="user_password" class="form-control">
+								<input type="password" name="password" class="form-control">
 								<div class="invalid-feedback">
 								</div>
 							</div>
