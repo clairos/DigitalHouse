@@ -10,5 +10,6 @@ GROUP BY id_turma
 HAVING alunos <= 5;
 
 --------------------------
-SELECT DISTINCT(alunos_turmas.id_aluno), alunos.* FROM alunos_turmas
+SELECT DISTINCT(alunos_turmas.id_aluno), alunos.* 
+FROM alunos_turmas
 RIGHT JOIN alunos USING(id_aluno)
