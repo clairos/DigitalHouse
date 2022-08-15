@@ -1,8 +1,14 @@
 const { Usuario } = require('../models/Usuario');
+const Op = Sequelize.Op;
 
 const UserController = {
     index: async (req, res) => {
-        let users = await Usuario.findAll();
+        let { page } = req.query;
+
+        let users = await Usuario.findAll({
+            limit:5,
+            offset: (page - 1) * 5
+        });
         console.log(users);
     },
 
@@ -14,6 +20,19 @@ const UserController = {
             where:{
                 nome: 'Exemplo de nome'
             }
+        })
+    },
+    search: async (req, res) => {
+        let { key } = req.query;
+        let users = await Usuario.findAll({
+            where:{ // objeto que recebe outro objeto
+                nome:{
+                    [Op.like]: '%Exemplo'
+                }
+            },
+            order:[ // array que recebe outro array
+                ['id_usuario', 'DESC']
+            ]
         })
     }
 }
