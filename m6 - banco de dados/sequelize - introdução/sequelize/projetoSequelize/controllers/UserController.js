@@ -1,4 +1,5 @@
 const { Usuario } = require('../models/Usuario');
+const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const UserController = {
