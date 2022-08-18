@@ -26,7 +26,7 @@ const cols = {
 }
 
 const Filme = sequelize.define('Filme', cols, {
-    tableName: 'Movies',
+    tableName: 'movies',
     timestamps: false
 });
 
