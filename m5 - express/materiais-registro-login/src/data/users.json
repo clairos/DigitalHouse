@@ -7,5 +7,14 @@
         "avatar": "",
         "id": 1,
         "re_password": "$2a$10$z3r2k73Gvi6pdnOobXybGO4p7VtWWU4YsWqy13Nm7LMW0XVAMQuZy"
+    },
+    {
+        "full_name": "ana",
+        "email": "clara@email.com",
+        "password": "12345",
+        "country": "Bra",
+        "avatar": "",
+        "id": 2,
+        "re_password": "$2a$10$0PlSTHn3oOHTVuTMsj4mLOSWEG4Au9OAxL8NSOnf0jP/9UxlwP1hS"
     }
 ]
