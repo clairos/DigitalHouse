@@ -10,18 +10,11 @@
 <body>
     <figure>
         <img src="/img/logo-DH.png" alt="Logo Digital House">
-    </figure>
+    </figure>    
     <h1><%= genre.name %> </h1>
     <br>
     <p>NAME: <%= genre.name %> </p>
     <p>RANKIG: <%= genre.ranking %> </p>
-
-    <h2>Movies Related</h2>
-    <ul>
-        <% genre.movies.forEach(movie => { %>
-            <li><%= movie.title %></li>
-        <% }) %>
-    </ul>
 
 </body>
 </html>

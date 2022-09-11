@@ -10,10 +10,36 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 img{
   width: 100%;
 }
 figure{
+  width: 20%;
+}
+.titulo{
+  text-align: center;
+}
+.botonAdicionar , .botonModificar{
+  color: white;
+  background-color: green;
+  padding: 10px;
+  border-radius: 10px;
+}
+.botonApagar{
+  color: white;
+  background-color: red;
+  padding: 10px;
+  border-radius: 10px;
+}
+.botonVoltar{
+  color: white;
+  background-color: #00B7FF;
+  padding: 10px;
+  border-radius: 10px;
+}
+.formulario{
+  margin: auto;
   width: 20%;
 }

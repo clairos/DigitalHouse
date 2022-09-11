@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apagar o Filme</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+      </figure>
+    <h1>Tem certeza que quer aoagar esse filme: <%= Movie.title %>???</h1>
+    <p>
+        <form action="/movies/delete/<%= Movie.id %>" method="POST">
+            <br>
+            <p> <button class="botonApagar" type="submit">Apagar o Filme</button>
+            
+            <a  class="botonVoltar" href="/movies">Lista de Filmes</a></p>
+
+        </form>
+    </p>
+    
+</body>
+
+</html>
