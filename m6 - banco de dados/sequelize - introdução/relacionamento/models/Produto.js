@@ -1,3 +1,5 @@
+const Pedido = require("./Pedido")
+
 module.exports = (sequelize, DataType) => {
     const Produto = sequelize.define('Produto', {
         id_produto:{
@@ -22,6 +24,12 @@ module.exports = (sequelize, DataType) => {
         Produto.belongsTo(listadeModelos.Categoria,{
             foreignKey:'fk_categoria',
             as:'categoria'
+        })
+
+        Produto.belongsToMany(listadeModelos.Pedido, {
+            foreignKey:'fk_pedido',
+            as: 'pedidos',
+            through: listadeModelos.ItemPedido
         })
     }
 
