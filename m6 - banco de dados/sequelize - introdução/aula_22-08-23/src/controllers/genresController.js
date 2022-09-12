@@ -1,4 +1,4 @@
-const { Genre } = require('../models');
+const { Genre, Movie } = require('../models');
 
 module.exports = {
     async list(req, res) {
@@ -9,7 +9,13 @@ module.exports = {
 
     async detail(req, res) {
         const { id } = req.params;
-        const genre = await Genre.findByPk(id);
+        const genre = await Genre.findOne({
+            include: [
+                { model: Movie, as: 'movies', required: false }
+            ],
+
+            where: { id }
+        });
 
         res.render('genresDetail', { genre });
     }
