@@ -24,6 +24,10 @@ module.exports = (sequelize, dataTypes) => {
 
         release_date: {
             type: dataTypes.DATE
+        },
+
+        genre_id: {
+            type: dataTypes.INTEGER
         }
     }
 
@@ -32,5 +36,14 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
 
-    return sequelize.define('Movie', cols, config);
+    const Movie = sequelize.define('Movie', cols, config);
+
+    Movie.associate = (models) => {
+        Movie.belongsTo(models.Genre, {
+            as: 'genre', // movie.genre 
+            foreignKey: 'genre_id'
+        });
+    }
+
+    return Movie
 }
