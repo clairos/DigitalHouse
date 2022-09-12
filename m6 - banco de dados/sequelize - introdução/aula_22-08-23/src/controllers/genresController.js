@@ -1,21 +1,9 @@
-const db = require('../database/models');
-const sequelize = db.sequelize;
+const { Genre } = require('../models');
 
+module.exports = {
+    async list(req, res) {
+        const genres = await Genre.findAll();
 
-const genresController = {
-    'list': (req, res) => {
-        db.Genre.findAll()
-            .then(genres => {
-                res.render('genresList.ejs', {genres})
-            })
-    },
-    'detail': (req, res) => {
-        db.Genre.findByPk(req.params.id)
-            .then(genre => {
-                res.render('genresDetail.ejs', {genre});
-            });
+        res.render('genresList', { genres });
     }
-
 }
-
-module.exports = genresController;
