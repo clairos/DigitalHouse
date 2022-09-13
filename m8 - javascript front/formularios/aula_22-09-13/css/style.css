@@ -170,6 +170,13 @@ a{
   padding: 10px;
 }
 
+small.erro {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  padding-left: 5px;
+  color: #cc2200;
+}
 
 .form-auth {
   display: flex;
