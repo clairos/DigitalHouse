@@ -7,6 +7,9 @@ const nameInput = document.querySelector('input[name="name"]');
 const surnameInput = document.querySelector('input[name="surname"]');
 const userInput = document.querySelector('input[name="username"]');
 const passwordInput = document.querySelector('input[name="password"]');
+const nomeUsuario = document.querySelector('.avatar-content > b');
+
+nomeUsuario.textContent = localStorage.getItem('username');
 
 let erros = [];
 // const erros = [];
@@ -71,11 +74,14 @@ form.addEventListener('submit', function(event) { // não usar arrow function!!!
             mode: 'no-cors',
             method: 'POST',
             body: JSON.stringify( {
-                
+                name: nameInput.value,
+                surname: surnameInput.value,
+                username: userInput.value,
+                email: emailInput.value,
+                password: passwordInput.value
             })
         })
         .then(response => {
-            console.log(response)
             return response.json()
         }).then(data => {
             console.log(data)
