@@ -83,8 +83,11 @@ form.addEventListener('submit', function(event) { // não usar arrow function!!!
         })
         .then(response => {
             return response.json()
-        }).then(data => {
-            console.log(data)
+        }).then(user => {
+            localStorage.setItem('user', user.username)
+            window.location.href = feed.html
+        }).catch(erro => {
+            alert(erro);
         })
     }
 });
