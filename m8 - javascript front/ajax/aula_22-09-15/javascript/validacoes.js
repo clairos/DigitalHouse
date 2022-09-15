@@ -66,9 +66,19 @@ form.addEventListener('submit', function(event) { // não usar arrow function!!!
         document.getElementById(erro.name).innerHTML = erro.message;
     })
 
-    if(erros.length == 0){
-        fetch('https://brunorazera-digitalhous-0p3a6tnqzqg.ws-us65.gitpod.io/users').then(function(response){
+    if(erros.length === 0){
+        fetch('https://brunorazera-digitalhous-0p3a6tnqzqg.ws-us65.gitpod.io/users', {
+            mode: 'no-cors',
+            method: 'POST',
+            body: JSON.stringify( {
+                
+            })
+        })
+        .then(response => {
             console.log(response)
+            return response.json()
+        }).then(data => {
+            console.log(data)
         })
     }
 });
